@@ -4,12 +4,12 @@ const Login = require('../controller/loginController');
 const Room = require('../controller/roomController');
 const Booked = require('../controller/bookedController');
 
-// #Slot
+// #Rooms
 router.post('/booking', Room.createRoom);
 router.get('/bookings', Room.getRooms);
 
-// #BookedSlots
-router.post('/created-booked', Booked.createBooked);
+// #BookedRooms
+router.post('/confirmbookedrooms', Booked.createBooked);
 router.get('/booked-rooms', Booked.getBooked);
 router.put('/update-room', Room.updateRoom);
 

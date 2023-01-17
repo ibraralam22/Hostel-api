@@ -18,7 +18,7 @@ class Booked {
         userId: userId,
         status: 'COMPLETED',
       });
-      if (bookedList.length >= 2) {
+      if (bookedList.length >= 1) {
         throw {
           message: 'You are fully vaccinated',
         };
@@ -43,11 +43,11 @@ class Booked {
 
   getBooked = async (req, res) => {
     try {
-      const response = await bookedDetails.find().populate('userId slotId');
+      const response = await bookedDetails.find().populate('userId roomId');
       res.send({
         status: true,
         response: response,
-        message: 'Successfully get all slots',
+        message: 'Successfully get all Rooms',
       });
     } catch (error) {
       res.send({
@@ -60,7 +60,10 @@ class Booked {
   updateBooked = async (req, res) => {
     const id = req.body.id;
     const slotTime = req.body.slotTime;
-    const response = await bookedDetails.updateOne({ _id: id }, { slotTime: slotTime });
+    const response = await bookedDetails.updateOne(
+      { _id: id },
+      { slotTime: slotTime }
+    );
     res.send(response);
   };
 }

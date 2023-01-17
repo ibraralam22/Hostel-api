@@ -16,10 +16,16 @@ class Room {
           message: 'Please enter hostel',
         };
       }
+      if (!userId) {
+        throw {
+          message: 'Please enter hostel',
+        };
+      }
 
       const response = await roomDetails.create({
         roomNo,
         hostelNo,
+        userId
       });
       res.send({
         status: true,

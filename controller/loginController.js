@@ -49,7 +49,7 @@ class Login {
 
   getUsers = async (req, res) => {
     const response = await userDetails
-      .find({ _id: { $nin: ['639181d7983b1670f3feaaab'] } })
+      .find({ _id: { $nin: ['63bd5305eb9392ee67d6961b'] } })
       .populate();
     res.send(response);
   };
